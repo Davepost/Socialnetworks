@@ -1,0 +1,73 @@
+<% if current_user %>
+    <div id="header" class="header_favoriete">
+      <div id="profile">
+        <%= image_tag(current_user.photo, :id => "profile_photo" )%>
+        &nbsp;
+        <p><%= current_user.name %></p>
+      </div>
+      <div id="header_title"><p>Favoriete foto's</p></div>
+      <%= link_to("Refresh", refresh_path, id:"re_fresh", :class => "logout")%>
+      <%= link_to("Sign out", signout_path, id:"sign_out", :class => "logout")%>
+    </div>                                                                                              e
+    <div class="interface_wrapper">
+      <div class="interface">
+        <% current_user.friends.each do |f| %>
+            <% f.photos.order("create_date DESC").each do |p| %>
+                <div class='image_wrapper'>
+                  <div class='image'>
+                    <div class="img">
+                      <%= image_tag (p.url), :class => 'friend_image' %>
+                      <% group = Group.where(:user_id => current_user.id, :friend_id => f.id).first %>
+                      <div class="img_overlay">
+                        <div class="choice_holder">
+                          <h1>Wat is deze persoon van jou?</h1>
+                          <p>Maak een keuze door op 1 van de rondjes te klikken</p>
+                          &nbsp;
+                          <div class="button_choice_holder">
+                            <div class="button_choice"><%= link_to image_tag('vriend.png'), asign_group_path(:group_id => group.id, :name => 'Vrienden')%><p>Vriend</p> </div>
+                            <div class="button_choice"> <%= link_to image_tag('familie.png'),asign_group_path(:group_id => group.id, :name => 'Familie')%><p>Familie</p></div>
+                            <div class="button_choice"><%= link_to image_tag('kennis.png'), asign_group_path(:group_id => group.id, :name => 'Kennissen')%><p>Kennis</p> </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="img_title"><p><%= p.name %></p></div>
+                    <div class='picture_info picture_info_<%= group.name.to_s.downcase %>'>
+                      <div class='picture_info_photo'><%= image_tag(f.picture) %></div>
+                      &nbsp;
+                      <% unless group.name == nil -%>
+                          <h1><%= f.name  %></h1>
+                          <p><%= group.name %></p>
+                      <% else -%>
+                          <h1><%= f.name  %></h1>
+                          <p>Nog geen groep, Klik op de foto om de vriend in te delen.</p>
+                      <% end -%>
+                    </div>
+                  </div>
+                </div>
+            <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div id="footer">
+      <div id="menu">
+        <%= link_to("Alle foto's", root_url, id:"index", :id => "button", :class  => "button_iedereen")  %>
+        <%= link_to("Familie Foto's", familie_path, id:"familie", :id => "button", :class  => "button_familie")  %>
+        <%= link_to("Vrienden Foto's", vrienden_path, id:"vrienden", :id => "button", :class  => "button_vrienden")  %>
+        <%= link_to("Kennissen Foto's", kennissen_path, id:"kennissen", :id => "button", :class  => "button_kennissen")  %>
+        <%= link_to("Mijn Foto's", mijn_path, id:"mijn", :id => "button", :class  => "button_eigen")  %>
+        <%= link_to("Favoriete Foto's", favoriete_path, id:"favoriete", :id => "button", :class  => "button_favoriete button_active")  %>
+        <div class="clear"></div>
+      </div>
+    </div>
+<% else %>
+    <div id="login">
+      <div id="login_screen">
+        <p>Om foto's te bekijken moet je eerst inloggen met je facebook profiel</P>
+        &nbsp;
+        <h1>Klik op de knop hier onder om in te loggen</h1>
+        &nbsp;
+        <%= link_to image_tag("login_button.png"), "/auth/facebook", id: "sign_in" %>
+      </div>
+    </div>
+<% end %>

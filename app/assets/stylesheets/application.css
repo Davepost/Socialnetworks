@@ -1,0 +1,100 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+/*----------> GENERAL <----------*/
+* {margin:0px; padding:0px; width: auto; overflow-y: hidden;}
+body {font-family:arial; }
+.clear {clear:both;}
+
+/*----------> LOGIN SCREEN <----------*/
+#login {margin:auto; width: 1024px;height:669px; background-image:url('login_bg.png');}
+#login_screen {width: 337px; margin-left: auto; margin-right: auto; padding-top: 295px; text-align: center;}
+
+/*----------> INTERFACE<----------*/
+.interface {margin-top:32px; height:1000px; padding:10px;width:auto; }
+.interface_wrapper{width:100%; height: 1000px; overflow-x: scroll; background-color:#e8eaec;}
+
+
+/*----------> PICTURE VIEW <----------*/
+.image_wrapper { display:table-cell; position: static; width: auto; height:490px;  }
+.image_wrapper .image {width: auto; margin: 0 20px 0 20px; position: relative; text-align:center; border: 2px solid #cbcbcb; border-bottom:none; height:490px; }
+.image_wrapper .image .img { min-width: 400px; width:auto; height:400px; background: #222; position:relative;}
+.image_wrapper .image .img img { width:auto; margin-left:auto; margin-right:auto; height:400px;}
+.img_title {height: 20px; width:100%; background: #222;}
+
+/*----------> PICTURE CLICK<----------*/
+.img_overlay_visible{top:0px; opacity:0.8;position: absolute; width:100%; height:400px; left:0; background: #ffffff;}
+.image_wrapper .image .img .img_overlay img { width: 79px; height: 79px;position:relative;}
+.choice_holder {margin-top: 100px;}
+.button_choice  {color: #000;width:79px;margin-right:15px;float:left;}
+.button_choice_holder { height:99px; width: 292px; margin-right: auto;margin-left: auto;}
+
+
+
+/*----------> PICTURE INFO <----------*/
+.picture_info_photo img {height: 55px; width: 55px;}
+.picture_info {border-bottom: 2px solid #000;position:relative;height:68px; width:100%; background: #fff;bottom: 0px;}
+.picture_info_photo{ top:5px;margin-left:5px;padding-right: 5px; float: left; position:relative; height: 80px; width:80px;}
+.picture_info_vrienden {border-bottom: 2px solid #769dbf;}
+.picture_info_familie {border-bottom: 2px solid #96c671;}
+.picture_info_kennissen {border-bottom: 2px solid #8c8d8d;}
+.picture_info_eigen  {border-bottom: 2px solid #de852c;}
+.picture_info_iedereen {border-bottom: 2px solid #b743d8;}
+.picture_info_favoriete {border-bottom: 2px solid #ead034;}
+
+
+/*----------> HEADER + PROFILE <----------*/
+#header {height: 52px; width: 2000px; position: fixed; z-index:2; background-repeat:repeat-x;}
+.header_iedereen {background-image:url('header_iedereen.png');}
+.header_familie {background-image:url('header_familie.png');}
+.header_vrienden {background-image:url('header_vrienden.png');}
+.header_kennissen {background-image:url('header_kennissen.png');}
+.header_eigen {background-image:url('header_mijnfotos.png');}
+.header_favoriete {background-image:url('header_favorieten.png');}
+#profile {float: left;padding-left: 20px;padding-top: 8px; width: 380px; height: 52px;position: relative;}
+#profile_photo {float: left; position: relative; width: 35px; height: 35px;margin-right: 5px;}
+#header_title {position:relative;float:left;width: 375px; height: 52px;margin-top: 13px;margin-right:220px;text-align: center;}
+.logout {text-decoration: none;text-align:center; line-height:37px; font-size: 12px;color: #ffffff;font-weight: bold; text-shadow: 0 -1px rgba(0,0,0,0.5);
+         position:relative;float:left; background-image:url('loguit.png');background-repeat: no-repeat;width: 90px;height: 37px;border: none;margin-left: 40px;margin-top: 7px;}
+
+
+/*----------> FOOTER + MENU <----------*/
+#footer { height: 80px; width: 100%; position: fixed; bottom: 0; background-image:url('nav_bg.png');}
+#menu {height: 80px;  width: 842px;  margin-left: auto; margin-right: auto; bottom: 0;}
+#button { text-decoration:none; float:left;padding-top:60px; border:none;height:80px; font-size: 14px; text-align: center; color: #fff; font-weight: bold; text-shadow: 1px 1px rgba(0,0,0,0.5);}
+.button_active {background-position: 0 -80px;}
+.button_iedereen {width:142px;background-image:url('nav_iedereen.png');}
+.button_familie {width:140px;background-image:url('nav_familie.png');}
+.button_vrienden {width:140px;background-image:url('nav_vrienden.png');}
+.button_kennissen {width:140px;background-image:url('nav_kennissen.png');}
+.button_eigen {width:140px;background-image:url('nav_mijnfotos.png');}
+.button_favoriete {width:140px;background-image:url('nav_favorieten.png');}
+
+/*----------> FONTS <----------*/
+#profile p {font-size: 14px;color: #fff;font-weight: bold;text-shadow: 0 -1px rgba(0,0,0,0.5);}
+#header_title p {font-size: 22px;color: #fff;font-weight: bold;font-style: italic;text-shadow: 0 -1px rgba(0,0,0,0.5);}
+#login_screen p {font-size: 16px; color: #555f6e;}
+#login_screen h1 {font-size: 16px;color: #555f6e;font-weight: bold;font-style: italic;}
+.img_title p {font-size: 12px; font-weight: bold; color:#fff;}
+.picture_info p {font-size: 12px;color: #a9a9a9;text-align: left;}
+.picture_info h1 { font-size: 14px; font-weight: bold; text-align:left;}
+.picture_info_vrienden h1 {color: #226eb3;}
+.picture_info_familie h1 {color: #55b322;}
+.picture_info_kennissen h1 {color: #414141;}
+.picture_info_eigen h1 {color: #de852c;}
+.picture_info_iedereen h1 {color: #b743d8;}
+.picture_info_favoriete h1 {color: #ead034;}
+.button_choice p {font-size: 14px;color: #000000; font-weight: bold;}
+.img_overlay p  {font-size: 14px;color: #000000;}
+.img_overlay h1 {font-size: 18px;color: #000000;}

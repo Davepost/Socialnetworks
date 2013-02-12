@@ -4,8 +4,6 @@ gem 'rails', '3.2.11'
 gem 'heroku'
 
 
-
-gem 'sqlite3'
 gem 'omniauth-facebook'
 gem 'koala'
 
@@ -17,8 +15,7 @@ end
 
 gem 'jquery-rails'
 
-group :production do
+
   gem 'pg'
-end
 
 
